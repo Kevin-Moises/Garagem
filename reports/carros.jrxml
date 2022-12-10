@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="carros" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a06c68dc-2e02-4ce8-adc5-054065275d43">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from carro]]>
+	</queryString>
+	<field name="idcarro" class="java.lang.Integer"/>
+	<field name="placa" class="java.lang.String"/>
+	<field name="chassi" class="java.lang.String"/>
+	<field name="ano" class="java.lang.Integer"/>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="montadora" class="java.lang.String"/>
+	<field name="ultimoaluguel" class="java.lang.String"/>
+	<field name="disponivel" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="26" uuid="b8efe861-dc09-43ed-ba63-c20c7585efe4"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Carros]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="66" height="29" uuid="74440ec3-803b-4521-ab13-e2ae1b25ed1d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID do Carro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="0" width="69" height="29" uuid="9a442ed6-aa79-4694-ac01-0827fba0e34c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="0" width="71" height="29" uuid="91e3c35b-a6e4-46d1-941f-c82b5bd798de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="0" width="78" height="29" uuid="aec16183-f2ac-41ed-8ed3-a457bd14723e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Montadora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="0" width="48" height="29" uuid="838975b4-401b-440e-8e30-b04d29f19ca7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ano]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="0" width="88" height="29" uuid="c23dc8ec-9488-4237-a233-aecbed171237"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data do Último aluguel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="0" width="135" height="29" uuid="c2726f0a-fe3b-46b8-87f3-826ffbdc4139"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Chassi]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="66" height="28" uuid="6bc6df54-ce07-46fe-bd60-60c12bae549f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idcarro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="0" width="69" height="28" uuid="2d8bfa8f-c6c8-40d8-bd25-e35fc78cffb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{placa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="0" width="71" height="28" uuid="a35caec1-edec-43ba-a4d4-1518979fce49"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="0" width="78" height="28" uuid="3a0f0cb3-0c51-4cf0-887d-927929b3028f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{montadora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="48" height="28" uuid="12f0705d-d2e2-4336-97fd-9f48b2bd8eb2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ano}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="88" height="28" uuid="c1f22366-0655-4b21-ab40-d9b6da7e0337"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ultimoaluguel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="135" height="28" uuid="e10a4e22-8bcf-4a32-8744-ca8648e8941d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{chassi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="545" y="34" width="10" height="20" uuid="e98e4d44-50a1-4de8-9c17-542f0d2c66b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="34" width="118" height="20" uuid="be218a1d-332b-4634-9a47-41c7224b9d4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

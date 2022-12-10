@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionarios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c87c765-2290-4723-8b90-b6861cd1c04c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select func.*, cf.contatofunc from funcionario func
+	inner join contatofunc cf
+	on func.idfunc = cf.idfunc]]>
+	</queryString>
+	<field name="idfunc" class="java.lang.Integer"/>
+	<field name="nomefunc" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="departamento" class="java.lang.String"/>
+	<field name="ramal" class="java.lang.Integer"/>
+	<field name="turno" class="java.lang.String"/>
+	<field name="cidade" class="java.lang.String"/>
+	<field name="rua" class="java.lang.String"/>
+	<field name="num" class="java.lang.Integer"/>
+	<field name="cep" class="java.lang.String"/>
+	<field name="usuario" class="java.lang.String"/>
+	<field name="senha" class="java.lang.String"/>
+	<field name="contatofunc" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="29" uuid="862a8c76-a375-45fc-9746-3b1e1a21e58f"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Funcionários]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="93" height="23" uuid="bb0f6438-536b-4aa7-ae89-c871da621884"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Funcionário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="0" width="90" height="23" uuid="0e4aa1ac-9006-4488-9192-8919bef400d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="477" y="0" width="78" height="23" uuid="d054dbd4-401e-4401-bfe7-285f4fd461c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contato ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="0" width="100" height="23" uuid="10121309-150f-4d91-8323-a2a45547789b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="0" width="107" height="23" uuid="c84ca175-5d49-4eb8-ad61-15c7d9fa1d7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="0" width="87" height="23" uuid="98f6928b-79ae-4f56-8032-f1361bbda7ec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CEP]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="93" height="28" uuid="fa6e5932-abe3-48a9-86ed-929edb769d24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idfunc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="90" height="28" uuid="650e833c-0624-4718-a043-e717c94335c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nomefunc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="78" height="28" uuid="3eb47c8f-439b-480a-adb1-965e45a74560"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contatofunc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="183" y="0" width="100" height="28" uuid="51ea599b-907c-440b-b1a9-3bf4889fd533"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="0" width="107" height="28" uuid="c45a7410-e8b8-48f0-9fac-00283cbeed8d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="0" width="87" height="28" uuid="ecd0eff7-e28b-4ab7-8639-9f0afa7abd03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss Z">
+				<reportElement x="0" y="34" width="125" height="20" uuid="0095934c-752d-45f0-9a59-be5dfd3f0de9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="544" y="34" width="11" height="20" uuid="c601fcb4-bd61-4dc3-b6b4-e103c20442b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

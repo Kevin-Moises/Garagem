@@ -1,0 +1,31 @@
+select * from carro]
+
+select * from cliente
+select * from contatocli
+
+insert into contatocli values (3, '(66) 99231-2757', null);
+
+select cli.*, cc.contatocli from cliente cli inner join contatocli cc on cli.idcli = cc.idcli where cli.idcli = 4;
+
+create table aluguel(
+	idAluguel serial,
+	dataAluguel varchar(10) not null,
+	idCarro integer,
+	idCli integer,
+	idFunc integer,
+	constraint pk_aluguel primary key (idAluguel),
+	constraint fk_carro foreign key (idcarro) references carro,
+	constraint fk_cliente foreign key (idcli) references cliente,
+	constraint fk_funcionario foreign key (idfunc) references funcionario
+);
+
+drop table aluguel
+
+select * from aluguel;
+
+select alu.dataaluguel, alu.idaluguel, car.modelo, cli.nomecli, cc.contatocli, func.nomefunc from aluguel alu
+	inner join carro car on alu.idcarro = car.idcarro
+	inner join cliente cli on alu.idcli = cli.idcli
+	inner join contatocli cc on alu.idcli = cc.idcli 
+	inner join funcionario func on alu.idfunc = func.idfunc
+	order by alu.idaluguel

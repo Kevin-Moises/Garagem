@@ -1,0 +1,75 @@
+CREATE TABLE IF NOT EXISTS public.ContatoFunc 
+(
+    idFunc  integer NOT NULL,
+    contatoFunc  character varying(20) COLLATE pg_catalog. default  NOT NULL,
+	segundoContato character varying(20),
+    CONSTRAINT  ContatoFunc_pkey  PRIMARY KEY ( idFunc ,  contatoFunc ),
+    CONSTRAINT  ContatoFunc_idFunc_fkey  FOREIGN KEY ( idFunc )
+    REFERENCES public. Funcionario  ( idFunc ) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+);
+
+DROP TABLE contatofunc
+
+CREATE TABLE IF NOT EXISTS public.Funcionario 
+(
+    idFunc  serial,
+    nomeFunc  character varying(50) COLLATE pg_catalog. default ,
+	cpf character varying(100), 
+    departamento character varying(20) COLLATE pg_catalog. default ,
+    ramal integer,
+    turno character varying(20) COLLATE pg_catalog. default ,
+    cidade character varying(50) COLLATE pg_catalog. default ,
+    rua character varying(50) COLLATE pg_catalog. default ,
+    num integer,
+    cep character varying(20) COLLATE pg_catalog. default ,
+	usuario character varying(50), 
+	senha character varying(100),
+    CONSTRAINT  Funcionario_pkey  PRIMARY KEY ( idFunc )
+);
+
+INSERT INTO funcionario VALUES (default, 'Renato', '756.719.100-80', 'Vendas', 1, 'Integral', 'Votuporanga',
+							   'Rio Grande', 1175, '15500-010', 'renato.vendas', 'RhOz8Fa4vO5k3lzyWeqdsw==')
+
+INSERT INTO contatofunc VALUES (1, '(13) 96716-5737')
+
+DROP TABLE funcionario CASCADE
+
+SELECT * FROM funcionario
+SELECT * FROM contatoFunc
+SELECT f.nomefunc, f.departamento, cf.contatofunc FROM funcionario f
+	INNER JOIN contatofunc cf 
+	ON f.idfunc = cf.idfunc
+	
+CREATE TABLE IF NOT EXISTS public.Cliente 
+(
+    idCli  serial,
+    nomeCli  character varying(50) COLLATE pg_catalog. default ,
+    numCNH  character varying(20) COLLATE pg_catalog. default ,
+    cpf character varying(100),
+    rua character varying(50) COLLATE pg_catalog. default ,
+    num integer,
+    cep character varying(20) COLLATE pg_catalog. default ,
+    cidade character varying(50) COLLATE pg_catalog. default ,
+    CONSTRAINT  Cliente_pkey  PRIMARY KEY ( idCli )
+);
+
+CREATE TABLE IF NOT EXISTS public. ContatoCli 
+(
+    idCli  integer NOT NULL,
+    contatoCli  character varying(20) COLLATE pg_catalog. default  NOT NULL,
+	segundoContato character varying(20),
+    CONSTRAINT  ContatoCliente_pkey  PRIMARY KEY ( contatoCli ,  idCli ),
+    CONSTRAINT  ContatoCliente_idCli_fkey  FOREIGN KEY ( idCli )
+    REFERENCES public. Cliente  ( idCli ) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+);
+	
+SELECT * FROM cliente
+SELECT * FROM contatocli
+
+SELECT cli.nomecli, cli.cidade, con.contatocli, con.segundocontato FROM cliente cli
+	INNER JOIN contatocli con 
+	ON cli.idcli = con.idcli
